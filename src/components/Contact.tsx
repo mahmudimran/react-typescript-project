@@ -4,10 +4,11 @@ import "./Contact.css"
 interface IProps{
     name: string,
     email? : string,
+    handleRemove : (email : string) => void
 
 }
 
-const Contact = ({name, email = "N/A"}: IProps) => {
+const Contact = ({name, email = "N/A" , handleRemove}: IProps) => {
     return (
         <div className="card">
             <p>
@@ -16,6 +17,7 @@ const Contact = ({name, email = "N/A"}: IProps) => {
             <p>
                 <strong>Email</strong> {email}
             </p>
+            <button onClick={() => handleRemove(email)}>Remove</button>
         </div>
     );
 };
