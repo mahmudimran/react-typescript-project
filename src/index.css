@@ -5,9 +5,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(125, 198, 243, 0.719);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.BS button {
+  float: left;
+  width: 20%;
+
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 0;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.BS input[type=text] {
+  font-size: 17px;
+  border: 0;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
 }
