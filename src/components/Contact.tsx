@@ -19,13 +19,13 @@ const Contact = ({ name, images, positon, age, email = "N/A", handleRemove }: IP
                 <div className="row no-gutters">
                     <div className="col-sm-5">
                         <img className="card-img PlayerImage mb-2" src={images} alt="Player Image" />
-                        <h6 className="card-title">Name: {name}</h6>
+                        <h6 className="card-title"><strong>Name</strong> : {name}</h6>
                     </div>
                     <div className="col-sm-7">
                         <div className="card-body">
-                            <p>Email : {email}</p>
-                            <p>Age : {age}</p>
-                            <p>Positon : {positon}</p>
+                            <p><strong>Email</strong> : {email}</p>
+                            <p><strong>Age </strong>: {age}</p>
+                            <p><strong>Positon </strong>: {positon}</p>
                             <a href="#" onClick={() => handleRemove(email)} className="btn btn-danger">Remove</a>
                         </div>
                     </div>
