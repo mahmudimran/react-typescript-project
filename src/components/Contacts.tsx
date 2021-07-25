@@ -4,44 +4,45 @@ import Contact from './Contact';
 interface IContact {
     name: string,
     email: string,
-
+    age: number,
+    position: string,
+    images: string
 }
 
 const Contacts = () => {
     const [contact, setContact] = useState<IContact>({} as IContact)
     const [contactList, setContactList] = useState<IContact[]>([])
-
-    console.log("contact", contact)
-
     const onClick = () => {
         setContactList([...contactList, contact])
         setContact({
             name: "",
-            email: ""
+            email: "",
+            position: "",
+            age: 0,
+            images: ""
         })
     }
 
-    const onChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
-        setContact({...contact, [e.target.name]: e.target.value})
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setContact({ ...contact, [e.target.name]: e.target.value })
     }
-    const handleRemove = (email: string) =>{
-        const newContactList = contactList.filter(c=>c.email !== email)
+    const handleRemove = (email: string) => {
+        const newContactList = contactList.filter(c => c.email !== email)
         setContactList(newContactList)
     }
-
 
     return (
         <div className="container">
             <div className="row">
-                <div className="col-sm-5 d-block m-auto">
-                    <h2 className="m-3">Contact List</h2>
-                    <div className="form-group BS">
+                <div className="col-sm-6 d-block m-auto">
+                    <h2 className="m-5 text-center">Player List</h2>
+                    <div className="player-field">
                         <input
                             value={contact.name}
                             onChange={onChange}
                             type="text"
                             name="name"
-                            className="form-control"
+                            className="form-control mb-2"
                             placeholder="Contact Name"
 
                         />
@@ -50,20 +51,40 @@ const Contacts = () => {
                             onChange={onChange}
                             type="text"
                             name="email"
-                            className="form-control"
+                            className="form-control mb-2"
                             placeholder="Contact Email"
 
                         />
-                    
-                        <button onClick={onClick} type="button" className="btn btn-primary mb-2">ADD</button>
+                        <input
+                            value={contact.age}
+                            onChange={onChange}
+                            type="text"
+                            name="age"
+                            className="form-control mb-2"
+                            placeholder="Your Age"
+                        />
+                        <input
+                            value={contact.position}
+                            onChange={onChange}
+                            type="text"
+                            name="position"
+                            className="form-control mb-2"
+                            placeholder="Your Position"
+                        />
+                        <input
+                            value={contact.images}
+                            onChange={onChange}
+                            type="text"
+                            name="images"
+                            className="form-control"
+                            placeholder="Images URL"
+                        />
                     </div>
+                    <br />
+                    <p className="text-center"><button onClick={onClick} type="button" className="btn btn-primary mb-2">Add Player</button></p>
                     {
-                        contactList.map((con) => <Contact name={con.name} key={con.name} email ={con.email} handleRemove={handleRemove}/>)
+                        contactList.map((con) => <Contact positon={con.position} age={con.age} images={con.images} name={con.name} key={con.name} email={con.email} handleRemove={handleRemove} />)
                     }
-
-                    {/* <Contact name="Imran Mahmud" email="miahimran75@gmail.com" />
-                    <Contact name="Someone" email="someone@gmail.com" />
-                    <Contact name="Someone" /> */}
                 </div>
             </div>
         </div>
